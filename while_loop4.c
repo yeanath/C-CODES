@@ -5,7 +5,8 @@ int main()
 
     int i=0;
     int sum=0;
-    while(i<=15){
+    while(i<=15)
+    {
         sum=sum+(i*i);
         i=((2*i)+1);
     }
