@@ -4,12 +4,10 @@
 int main()
 {
 
-    int i = 0;
     int sum = 0;
-    while (i <= 15)
+    for (int i = 0; i <= 15; i = ((2 * i) + 1))
     {
         sum = sum + (i * i);
-        i = ((2 * i) + 1);
     }
     printf("The ans is %d", sum);
     return 0;

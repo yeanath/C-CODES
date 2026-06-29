@@ -4,13 +4,12 @@
 int main()
 {
 
-    int i = 1;
     float sum = 0;
     int sign = 1;
-    while (i <= 6)
+    for (int i = 1; i <= 6; i = i + 1)
     {
         sum = sum + sign * (1.0 / pow(2, i));
-        i = i + 1;
+
         sign = -sign;
     }
     printf("The sum is %f", sum);
