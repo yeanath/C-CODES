@@ -1,4 +1,4 @@
-// Q: even or odd with while loop
+// Q: even or odd with for loop
 #include <stdio.h>
 #include <math.h>
 int main()
