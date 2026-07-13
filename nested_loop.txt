@@ -1,0 +1,23 @@
+/*
+Nested loop = loop inside another loop
+
+Outer loop controls how many "rounds" happen.
+Inner loop runs completely (all its iterations) for every single round of the outer loop.
+Inner loop's counter resets each time the outer loop moves to its next value.
+
+Rule: Total iterations = outer count × inner count
+Example:for(i=1; i<=3; i++){        // outer: 3 rounds
+    for(j=1; j<=2; j++){    // inner: runs 2 times per round
+        printf("i=%d, j=%d\n", i, j);
+    }
+}
+    The output will be:
+    for i=1, j=1
+             j=2
+    for i=2, j=1
+             j=2
+    for i=3, j=1
+             j=2
+    #Important note for patterns: outer loop = row
+                                  inner loop = column
+    */
