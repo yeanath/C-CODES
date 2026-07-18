@@ -1,3 +1,4 @@
+// input two number from user and print the sum
 #include <stdio.h>
 int sum(int a, int b);
 int main()
