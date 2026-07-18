@@ -1,0 +1,93 @@
+// sum of n natural numbers
+#include <stdio.h>
+int sum(int n);
+int main()
+{
+    printf("The sum is %d", sum(5));
+    return 0;
+}
+int sum(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    int sumNM1; // it means 1 to n-1
+    sumNM1 = sum(n - 1);
+    int sumN; // it means 1 to n
+    sumN = sumNM1 + n;
+    return sumN;
+}
+
+
+This is a recursive function — a function that calls **itself** — computing the sum of natural numbers from 1 to n. Let's trace it carefully.
+
+### The setup
+
+```c
+int sum(int n);      // prototype
+int main()
+{
+    printf("The sum is %d", sum(5));   // calls sum(5)
+    return 0;
+}
+```
+`main` calls `sum(5)`, wanting to print the sum of 1+2+3+4+5.
+
+```c
+int sum(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    int sumNM1;
+    sumNM1 = sum(n - 1);
+    int sumN;
+    sumN = sumNM1 + n;
+    return sumN;
+}
+```
+
+### The two key parts of any recursive function
+
+1. **Base case** (line 11-14): `if (n == 0) return 0;` — this is what **stops** the recursion. 
+Without it, the function would call itself forever.
+2. **Recursive case** (line 16): `sum(n - 1)` — the function calls a **smaller version of itself**, moving toward the base case.
+
+### Tracing `sum(5)` step by step
+
+Think of this as a stack of boxes — each call to `sum` opens a new box, and it can't close until the box it opens inside of finishes.
+
+**Going down (each call pauses at line 16, waiting for the answer):**
+
+```
+sum(5): n=5, not 0 → needs sum(4) first...      [paused]
+  sum(4): n=4, not 0 → needs sum(3) first...    [paused]
+    sum(3): n=3, not 0 → needs sum(2) first...  [paused]
+      sum(2): n=2, not 0 → needs sum(1) first...[paused]
+        sum(1): n=1, not 0 → needs sum(0) first...[paused]
+          sum(0): n=0 → base case! return 0      [DONE]
+```
+
+**Coming back up (each paused call resumes and finishes):**
+
+```
+sum(1) resumes: sumNM1 = 0, sumN = 0 + 1 = 1 → return 1
+sum(2) resumes: sumNM1 = 1, sumN = 1 + 2 = 3 → return 3
+sum(3) resumes: sumNM1 = 3, sumN = 3 + 3 = 6 → return 6
+sum(4) resumes: sumNM1 = 6, sumN = 6 + 4 = 10 → return 10
+sum(5) resumes: sumNM1 = 10, sumN = 10 + 5 = 15 → return 15
+```
+
+`sum(5)` finally returns `15` back to `main`, which prints:
+```
+The sum is 15
+```
+
+### Why it works — the mental model
+Each call to `sum(n)` says: *"I don't know my own answer yet, but I know it's `n` plus whatever `sum(n-1)` gives me. 
+Let me ask `sum(n-1)` and wait."* 
+This chain of "asking" keeps going down until `n` hits 0, where the answer is obviously `0` — no more asking needed. 
+Then each paused call finally gets its answer and adds its own `n` before passing the result back up.
+

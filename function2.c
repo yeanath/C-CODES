@@ -14,5 +14,5 @@ int main()
 }
 int sum(int x, int y) // a copy of a & b will come here
 {
-    return x + y; // then the sum will return to line 10
+    return x + y; // then the sum will return to line 10 and store it into main()
 }

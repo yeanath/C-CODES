@@ -1,20 +1,19 @@
-#include<stdio.h>
-int print_table(int n);
+#include <stdio.h>
+void print_table(int n);
 
 int main()
 {
     int n;
     printf("Enter the number : ");
-    scanf("%d",&n);
+    scanf("%d", &n);
     print_table(n);
     return 0;
 }
 
-int print_table(int n)
+void print_table(int n)
 {
-    for(int i=1;i<=10;i++)
+    for (int i = 1; i <= 10; i++)
     {
-        return i*n;
+        printf("%d\n", i * n);
     }
-    return 0;
 }
