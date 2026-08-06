@@ -25,24 +25,25 @@ int main(void)
         }
     }
     // version 1
-    int max = list[0], k = 0;   // guess: first element is the biggest
+    int max = list[0], count = 0;   // guess: first element is the biggest
     for (int i = 1; i < n; i++) // check the rest (start from index 1)
     { 
         if (list[i] > max)      // found something bigger?
         {                  
             max = list[i];      // update the biggest value
-            k = i;              // remember WHERE it was found
+            count++;              // remember WHERE it was found
         }
     }
-    printf("Largest Item = %d, Index = %d\n", max, k);
+    printf("Largest Item = %d, Index = %d\n", max, count);
 
     // version 2
-    int m = 0;                      // guess: index 0 holds the smallest
+    int m = 0, count=0;                      // guess: index 0 holds the smallest
     for (int i = 1; i < n; i++)     // check the rest
     { 
         if (list[i] <= list[m])     // is this element smaller (or equal)?
         {          
-            m = i;                  // remember this index instead
+            m = i;
+            count++;                  // remember this index instead
         }
     }
     printf("Smallest Item = %d, Index = %d\n", list[m], m);
