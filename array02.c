@@ -1,3 +1,5 @@
+// ascending and descending order
+
 #include <stdio.h>
 
 #define n 5
