@@ -1,4 +1,4 @@
-// duplicate
+// only single numbers
 
 #include <stdio.h>
 

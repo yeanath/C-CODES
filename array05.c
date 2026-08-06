@@ -1,3 +1,5 @@
+// only duplicate numbers
+
 #include <stdio.h>
 
 #define n 7
@@ -9,7 +11,7 @@ int main(void)
     for (int i = 0; i < n; i++)
     {
         int count = 0;
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < n; j++)         // or, for(int j=i+1;j<n;j++)
         {
             if (list[i] == list[j])
             {
