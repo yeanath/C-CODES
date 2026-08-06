@@ -9,9 +9,9 @@ int main(void)
     for (int i = 0; i < n; i++)
     {
         int count = 0;
-        for (int m = 0; m < i; m++)
+        for (int j = 0; j < i; j++)
         {
-            if (list[i] == list[m])
+            if (list[i] == list[j])
             {
                 count++;
             }
