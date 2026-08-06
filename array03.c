@@ -1,3 +1,5 @@
+// searching a number 
+
 #include <stdio.h>
 
 #define n 5
