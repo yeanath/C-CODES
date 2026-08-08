@@ -1,3 +1,5 @@
+// removing a number
+
 #include <stdio.h>
 
 #define n 7
