@@ -1,4 +1,4 @@
-// ascending and descending order
+// largest and smallest element
 
 #include <stdio.h>
 
